@@ -120,7 +120,8 @@ else ()
 endif ()
 
 target_link_libraries(${LIBRARY_NAME}
-        ${Boost_LIBRARIES}
+        ${Boost_SYSTEM_LIBRARY}
+        ${Boost_THREAD_LIBRARY}
 )
 
 # The rule is that: any breakage of the ABI must be indicated by incrementing the SOVERSION.
@@ -137,7 +138,8 @@ if (ENABLE_TESTING_THREADSAFETY)
     target_link_libraries(${LIBRARY_NAME}-tests-rc-assign
         ${LIBRARY_NAME}
         ${CMAKE_THREAD_LIBS_INIT}
-        ${Boost_LIBRARIES})
+        ${Boost_SYSTEM_LIBRARY}
+        ${Boost_THREAD_LIBRARY})
 
     add_executable(${LIBRARY_NAME}-tests-rc-filter
         tests/rc/filter)
@@ -145,7 +147,8 @@ if (ENABLE_TESTING_THREADSAFETY)
     target_link_libraries(${LIBRARY_NAME}-tests-rc-filter
         ${LIBRARY_NAME}
         ${CMAKE_THREAD_LIBS_INIT}
-        ${Boost_LIBRARIES})
+        ${Boost_SYSTEM_LIBRARY}
+        ${Boost_THREAD_LIBRARY})
 endif (ENABLE_TESTING_THREADSAFETY)
 
 if (ENABLE_TESTING)
