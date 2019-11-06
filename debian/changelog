@@ -1,3 +1,9 @@
+blackhole (1.9.0-1.1) unstable; urgency=medium
+
+  * Rebuild.
+
+ -- Vu Thanh Cong <thanhcong.vu@coccoc.vn>  Wed, 06 Nov 2019 11:02:15 +0700
+
 blackhole (1.9.0-1) unstable; urgency=low
 
   * Added: rotate section for file sink, which describes how (and if) files
