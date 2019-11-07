@@ -70,11 +70,14 @@ add_library(${LIBRARY_NAME} SHARED
 # Set the Standard version.
 include(CheckCXXCompilerFlag)
 
+check_cxx_compiler_flag("-std=c++17" COMPILER_SUPPORTS_CXX17)
 check_cxx_compiler_flag("-std=c++14" COMPILER_SUPPORTS_CXX14)
 check_cxx_compiler_flag("-std=c++11" COMPILER_SUPPORTS_CXX11)
 check_cxx_compiler_flag("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
-if (COMPILER_SUPPORTS_CXX14)
+if (COMPILER_SUPPORTS_CXX17)
+    add_definitions(-std=c++17)
+elseif (COMPILER_SUPPORTS_CXX14)
     add_definitions(-std=c++14)
 elseif (COMPILER_SUPPORTS_CXX11)
     add_definitions(-std=c++11)
