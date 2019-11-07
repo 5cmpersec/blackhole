@@ -8,6 +8,9 @@ DH_VERBOSE = 1
 override_dh_auto_configure:
 	cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_VERBOSE_MAKEFILE=ON
 
+override_dh_auto_build:
+	make -j
+
 .PHONY: override_dh_strip
 override_dh_strip:
 	dh_strip --dbg-package=blackhole-dbg
